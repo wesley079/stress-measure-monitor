@@ -7,16 +7,40 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+if(window.location.href.indexOf("new_session") > -1) {
+    var checkInterval = setInterval(checkCodeStatus,1000);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+    function checkCodeStatus(){
+        $.ajax({url: "/checkCodeStatus?code=" + document.getElementById('session_code').innerHTML, success: function(result){
+            if(result == "connected"){
+                window.location.href = "/connected_session";
+            }
+        }});
+    }
+}
 
-Vue.component('example', require('./components/Example.vue'));
+if(window.location.href.indexOf("connected_session") > -1) {
+    var checkInterval = setInterval(checkAirplaneStatus,1000);
 
-const app = new Vue({
-    el: '#app'
-});
+    function checkAirplaneStatus(){
+        $.ajax({url: "/checkAirplaneMode?code=" + document.getElementById('session_code').innerHTML, success: function(result){
+            if(result == "correct"){
+                clearInterval(checkInterval);
+                var status = document.getElementById('airplaneStatus');
+                status.innerHTML = "Connected";
+                status.classList += " done";
+
+                var timer = new Timer();
+                timer.start({countdown: true, startValues: {seconds: 10}});
+                $('#countdownExample .values').html(timer.getTimeValues().toString());
+                timer.addEventListener('secondsUpdated', function (e) {
+                    $('#countdownExample .values').html(timer.getTimeValues().toString());
+                });
+                timer.addEventListener('targetAchieved', function (e) {
+                    $('#countdownExample .values').html('Redirecting');
+                    window.location.href = "/current_session";
+                });
+            }
+        }});
+    }
+}

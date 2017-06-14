@@ -18,10 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/registerCode', 'postController@index');
+Route::get('/checkConnectionCode', 'postController@checkConnectionCode');
+Route::get('/checkCodeStatus', 'postController@checkCodeStatus');
+Route::get('/checkAirplaneMode', 'postController@checkAirplaneMode');
 
-Route::get('/new_session', function () {
-    return view('/sessions/session-step1');
-});
+Route::get('/new_session', 'SessionController@index');
+
+
 Route::get('/connected_session', function () {
     return view('/sessions/session-step2');
 });
