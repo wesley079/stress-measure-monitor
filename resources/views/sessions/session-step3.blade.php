@@ -1,39 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
+        <aside class="session-menu">
+            <label class="col-xs-12 active option">Music</label>
+            <label class="col-xs-12 option">Exercise</label>
+            <label class="col-xs-12 option">Body relaxation</label>
+            <label class="col-xs-12 option">Creativity</label>
+        </aside>
 <div class="container-fluid">
-    <div class="col-xs-12 col-md-2">
-    <aside class="col-xs-12">
-        <label class="col-xs-12">Music</label>
-        <label class="col-xs-12">Exercise</label>
-        <label class="col-xs-12">Body relaxation</label>
-        <label class="col-xs-12">Creativity</label>
-    </aside>
-    </div>
-    <div class="col-xs-12 col-md-7">
-        <div class="col-xs-12">
-            <label>Menu option</label>
-            <img src="" alt="option-picture">
 
-            <h2>Weightless - marconi Union</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut consectetur cum cupiditate deleniti deserunt esse hic id ipsa iusto nesciunt porro quae quo recusandae, reprehenderit sequi velit vero voluptas.</p>
-            <div class="col-xs-12">
-                play options
+    <div class="col-md-offset-2 col-xs-12 col-md-8">
+        <div class="col-xs-12 inspiration-container">
+            <img class="option-picture col-xs-12" src="/img/Weightless-Endless.png" alt="option-picture">
+            <label class="menu-title">Music</label>
+
+            <h2 class="inspiration-title col-xs-12">Weightless - Marconi Union</h2>
+            <p class="inspiration-description col-xs-10 col-xs-offset-1">Weightless is chosen as most relaxing song. Enjoy the free moment, play weightless by Marconi Union.</p>
+            <div class="col-xs-12 play-container">
+                <a href="https://open.spotify.com/track/6kkwzB6hXLIONkEk9JciA6" target="_blank"><img src="/img/spotify-play.png" class="spotify-play-button" alt="play this song on Spotify"/></a>
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-md-3">
+    <div class="col-xs-12 col-md-2">
         <div class="timer">
         <div id="countdownExample">
             <label> Remaining</label>
-            <div class="values"></div>
+            <div class="values session-screen-values"></div>
         </div>
         </div>
         <div class="status">
-            <label class="col-xs-12">Stress Measure Status</label>
-            <label class="col-xs-6">User ID</label><label class="col-xs-6">324897243</label>
-            <label class="col-xs-6">Smartphone</label><label class="col-xs-6">Connected</label>
-            <label class="col-xs-6">Status</label><label class="col-xs-6">In-session</label>
+            <label class="col-xs-12 title">Stress Measure Status</label>
+            <label class="col-xs-6 left-option">User ID</label><label class="col-xs-6 right-option">{{session()->get('code')}}</label>
+            <label class="col-xs-6 left-option">Smartphone</label><label class="col-xs-6 right-option">Connected</label>
+            <label class="col-xs-6 left-option">Status</label><label class="col-xs-6 right-option">In-session</label>
         </div>
 
     </div>

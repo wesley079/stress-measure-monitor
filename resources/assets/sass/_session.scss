@@ -60,3 +60,102 @@
 #countdownExample .values{
   padding-top: 100px;
 }
+
+.session-menu{
+  font-family: Helvetica;
+  margin-top: 30vh;
+  background-color: #474747;
+  width: 194px;
+  padding: 30px 30px;
+  color: white;
+  position: absolute;
+  font-weight: lighter;
+  left: 0;
+}
+.session-menu .option{
+  margin-top: 8px;
+  font-weight: 100;
+  cursor: pointer;
+}
+.session-menu .option:hover{
+  margin-left: +5px;
+  transition: 0.3s;
+}
+.session-menu .active{
+  font-size: 1.4em;
+  margin-left: -9px;
+  cursor: default;
+}
+.session-menu  .active:hover{
+  margin-left: -9px;
+}
+
+.option-picture{
+  border-bottom: #abd100 solid 10px;
+
+  position: relative;
+  width: 100%;
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+.menu-title{
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  font-size: 1.4em;
+  padding: 8px;
+  color: white;
+  background-color: rgba(0,0,0,0.3);
+}
+.inspiration-container{
+  bottom: 0;
+  background-color: #313131;
+  -webkit-box-shadow: 0px -2px 5px 3px rgba(0,0,0,0.41);
+  -moz-box-shadow: 0px -2px 5px 3px rgba(0,0,0,0.41);
+  box-shadow: 0px -2px 5px 3px rgba(0,0,0,0.41);
+  height: 100%;
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
+.inspiration-title{
+  font-size: 32pt;
+  padding-top: 15px;
+  color: white;
+  text-align: center;
+}
+.inspiration-description{
+  padding-top: 40px;
+  display: block;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+}
+.play-container{
+  padding: 50px;
+}
+.spotify-play-button{
+  width: 160px;
+  display: block;
+  margin: 0 auto;
+}
+
+#countdownExample .session-screen-values{
+  padding-top: 10px;
+}
+
+.status{
+  text-align: center;
+}
+.status .title{
+  padding: 40px 0 25px;
+  font-weight: bold;
+}
+
+.status .left-option{
+  text-align: right;
+}
+.status .right-option{
+  text-align: left;
+  font-weight: normal;
+}
