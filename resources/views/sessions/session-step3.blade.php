@@ -43,8 +43,10 @@
     <script>
 
         var timer = new Timer();
-        var startValue = 600;
-        timer.start({countdown: true, startValues: {minutes: 30, seconds: 30}});
+        var minutes = 30;
+        var seconds = 15;
+        var startValue = (minutes*60) + seconds ;
+        timer.start({countdown: true, startValues: {minutes: minutes, seconds: seconds}});
         $('#countdownExample .values').html(timer.getTimeValues().toString());
         timer.addEventListener('secondsUpdated', function (e) {
             $('#countdownExample .values').html(timer.getTimeValues().toString());

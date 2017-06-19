@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\session_data;
 use Illuminate\Http\Request;
 use App\activeCode;
 use Illuminate\Support\Facades\Auth;
@@ -58,6 +59,33 @@ class SessionController extends Controller
         }
         session()->put('code', $connectionCode);
         return view('/sessions/session-step1', array('code' => $connectionCode));
+    }
+
+    public function end(){
+        $session = session_data::where(array('session_code' => session()->get('code'), 'user_id' => Auth::user()->id))->first();
+
+        $percentage = intval($session->screen_seconds / $session->time * 100);
+
+        if($percentage > 100){
+            $percentage = 100;
+        }
+        $hours = floor($session->aimed_time / 3600);
+        $mins = floor($session->aimed_time / 60 % 60);
+        $secs = floor($session->aimed_time % 60);
+        $timeFormat = sprintf('%02d:%02d:%02d', $hours, $mins, $secs);
+
+        $hours = floor($session->time / 3600);
+        $mins = floor($session->time / 60 % 60);
+        $secs = floor($session->time % 60);
+        $realTime = sprintf('%02d:%02d:%02d', $hours, $mins, $secs);
+
+        $succes = '';
+        if($session->aimed_time <= $session->time){
+            $succes = true;
+        }
+
+
+        return view('/sessions/session-step4', array('succes' => $succes ,'aimed_time' => $timeFormat, 'time' => $realTime, 'screen_on_percentage' => $percentage, 'screen_unlock_amount' => $session->screen_amount, 'screen_unlocked_seconds' => $session->screen_seconds));
     }
 
     private function crypto_rand_secure($min, $max)

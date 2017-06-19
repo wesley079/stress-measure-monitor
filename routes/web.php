@@ -27,6 +27,7 @@ Route::get('/endSession', 'postController@finishSession');
 Route::get('/endSessionDesktop', 'postController@finishSessionDesktop');
 
 Route::get('/new_session', 'SessionController@index');
+Route::get('/end_session', 'SessionController@end');
 
 
 Route::get('/connected_session', function () {
@@ -34,9 +35,6 @@ Route::get('/connected_session', function () {
 });
 Route::get('/current_session', function () {
     return view('/sessions/session-step3');
-});
-Route::get('/end_session', function () {
-    return view('/sessions/session-step4');
 });
 
 
