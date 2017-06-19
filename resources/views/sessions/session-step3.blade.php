@@ -30,7 +30,7 @@
         </div>
         <div class="status">
             <label class="col-xs-12 title">Stress Measure Status</label>
-            <label class="col-xs-6 left-option">User ID</label><label class="col-xs-6 right-option">{{session()->get('code')}}</label>
+            <label class="col-xs-6 left-option">User ID</label><label id="session-code" class="col-xs-6 right-option">{{session()->get('code')}}</label>
             <label class="col-xs-6 left-option">Smartphone</label><label class="col-xs-6 right-option">Connected</label>
             <label class="col-xs-6 left-option">Status</label><label class="col-xs-6 right-option">In-session</label>
         </div>
@@ -43,6 +43,7 @@
     <script>
 
         var timer = new Timer();
+        var startValue = 600;
         timer.start({countdown: true, startValues: {minutes: 30, seconds: 30}});
         $('#countdownExample .values').html(timer.getTimeValues().toString());
         timer.addEventListener('secondsUpdated', function (e) {
@@ -50,6 +51,8 @@
         });
         timer.addEventListener('targetAchieved', function (e) {
             $('#countdownExample .values').html('Redirecting');
+            window.location.href = "/end_session";
+
         });
     </script>
 @endsection

@@ -22,6 +22,9 @@ Route::get('/registerCode', 'postController@index');
 Route::get('/checkConnectionCode', 'postController@checkConnectionCode');
 Route::get('/checkCodeStatus', 'postController@checkCodeStatus');
 Route::get('/checkAirplaneMode', 'postController@checkAirplaneMode');
+Route::get('/sessionEnd', 'postController@sessionEnd');
+Route::get('/endSession', 'postController@finishSession');
+Route::get('/endSessionDesktop', 'postController@finishSessionDesktop');
 
 Route::get('/new_session', 'SessionController@index');
 

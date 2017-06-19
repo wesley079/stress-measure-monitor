@@ -33,7 +33,18 @@ class SessionController extends Controller
 
         if ($dbCode != null)
         {
-            $connectionCode = $dbCode->code;
+            if($dbCode->end == 0) {
+                $connectionCode = $dbCode->code;
+            }
+            else{
+                $new_code = new activeCode();
+                $randomCode = $this->getToken(8);
+                $new_code->code = $randomCode;
+                $new_code->user_id = Auth::user()->id;
+                $new_code->save();
+
+                $connectionCode = $randomCode;
+            }
         }
         else{
 

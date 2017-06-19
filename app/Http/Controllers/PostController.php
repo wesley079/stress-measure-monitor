@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\activeCode;
+use App\session_data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -65,7 +67,93 @@ class PostController extends Controller
         
         return "waiting";
     }
+    
 
+    public function sessionEnd(){
+        date_default_timezone_set('Europe/Amsterdam');
+        $code = $_GET["code"];
+        $dbCode = activeCode::where(array('code' => $code))->first();
+
+        if($dbCode != null){
+            $lastRegister = $dbCode->updated_at;
+
+            if($dbCode->end == 1){
+                return 'correct';
+            }
+        }
+
+        return "waiting";
+    }
+
+    public function finishSession(){
+        date_default_timezone_set('Europe/Amsterdam');
+
+        $code = $_GET["code"];
+        $seconds = $_GET["seconds"];
+        $screen_on = $_GET["screen"];
+
+        //get codes
+        $dbCode = activeCode::where(array('code' => $code))->first();
+
+        if ($dbCode != null)
+        {
+            $dbCode->updated_at = date("Y-m-d H:i:s");
+            $dbCode->connected = 1;
+            $dbCode->end = 1;
+            $dbCode->save();
+
+            //create new session data
+            $session = new session_data();
+            
+            $session->session_code = $code;
+            $session->screen_amount = $screen_on;
+            $session->screen_seconds = $seconds;
+
+            $session->save();
+
+            return "true";
+        }
+        else{
+            return "false";
+        }
+    }
+
+    public function finishSessionDesktop(){
+        date_default_timezone_set('Europe/Amsterdam');
+
+        $code = $_GET["code"];
+        $time = $_GET["time"];
+        $aimed = $_GET["aimed"];
+
+        //get codes
+        $dbCode = activeCode::where(array('code' => $code))->first();
+
+        if ($dbCode != null)
+        {
+            $dbCode->updated_at = date("Y-m-d H:i:s");
+            $dbCode->connected = 1;
+            $dbCode->end = 1;
+            $dbCode->save();
+
+
+            $session = session_data::where(array('session_code' => $code))->first();
+            
+            //update data
+            $session->updated_at = date("Y-m-d H:i:s");
+            $session->user_id = Auth::user()->id;
+            $session->time = $time;
+            $session->aimed_time = $aimed;
+
+
+            $session->save();
+
+            return "correct";
+        }
+        else{
+            return "false";
+        }
+    }
+    
     public function checkConnectionCode(){
         date_default_timezone_set('Europe/Amsterdam');
         $code = $_GET["code"];

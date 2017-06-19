@@ -44,3 +44,31 @@ if(window.location.href.indexOf("connected_session") > -1) {
         }});
     }
 }
+if(window.location.href.indexOf("current_session") > -1) {
+    var checkInterval = setInterval(checkSessionEnd,1000);
+
+    function checkSessionEnd(){
+        $.ajax({url: "/sessionEnd?code=" + document.getElementById('session-code').innerHTML, success: function(result){
+            if(result == "correct"){
+                clearInterval(checkInterval);
+                endSession();
+            }
+        }});
+    }
+
+    function endSession(){
+        //get timer values
+
+        var totaltime = timer.getTotalTimeValues().seconds;
+
+
+        $.ajax({url: "/endSessionDesktop?code=" + document.getElementById('session-code').innerHTML + "&time=" + (startValue - totaltime) + "&aimed=" + startValue, success: function(result){
+            if(result == "correct"){
+                //clearInterval(checkInterval);
+                window.location.href = "/end_session";
+
+            }
+        }});
+    }
+}
+

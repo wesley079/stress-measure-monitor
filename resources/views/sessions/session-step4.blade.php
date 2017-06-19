@@ -1,30 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Congratulations, you succesfully completed your relax session</h1>
-        <label>Below some stats about your behaviour. Wasn't that bad was it?</label>
+    <div class="container text-center">
+        <h1>Session (high stress) - 19-06-2017</h1>
+        <h3 class="padding-top-20">Congratulations, you succesfully completed your relax session</h3>
+        <label class="text-center col-xs-12">Below some stats about your behaviour. Wasn't that bad was it?</label>
 
 
-        <div class="row">
+        <div class="row text-center padding-top-100">
             <div class="col-xs-12 col-md-4">
-                <label class="col-xs-12">21</label>
-                <label class="col-xs-12">Missed notifications</label>
+                <label class="col-xs-12 big-number">21%</label>
+                <label class="col-xs-12">Screen on during session</label>
             </div>
             <div class="col-xs-12 col-md-4">
-                <label class="col-xs-12">stats</label>
-                <label class="col-xs-12">Screen activity during session</label>
+                <label class="col-xs-12 big-number">5</label>
+                <label class="col-xs-12">Amount of screen unlocks</label>
             </div>
             <div class="col-xs-12 col-md-4">
-                <label>30</label><label>(+ 8)</label>
-                <label class="col-xs-12">Minutes of relaxation</label>
+                <label class="col-xs-12 big-number">85</label>
+                <label class="col-xs-12">Total seconds unlocked screen</label>
             </div>
         </div>
-
-
-
-        <div id="countdownExample">
-            <div class="values"></div>
+        <div class="row text-center padding-top-50">
+                <label class="col-xs-12 big-number">Succesfull session</label>
         </div>
     </div>
 @endsection
