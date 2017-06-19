@@ -37,5 +37,9 @@ Route::get('/current_session', function () {
     return view('/sessions/session-step3');
 });
 
+Route::get('/end_instruction_session', function () {
+    return view('/sessions/session-instructions');
+});
+
 
 

@@ -50,7 +50,6 @@ if(window.location.href.indexOf("current_session") > -1) {
     function checkSessionEnd(){
         $.ajax({url: "/sessionEnd?code=" + document.getElementById('session-code').innerHTML, success: function(result){
             if(result == "correct"){
-                clearInterval(checkInterval);
                 endSession();
             }
         }});
@@ -64,11 +63,12 @@ if(window.location.href.indexOf("current_session") > -1) {
 
         $.ajax({url: "/endSessionDesktop?code=" + document.getElementById('session-code').innerHTML + "&time=" + (startValue - totaltime) + "&aimed=" + startValue, success: function(result){
             if(result == "correct"){
-                //clearInterval(checkInterval);
+                clearInterval(checkInterval);
                 window.location.href = "/end_session";
 
             }
         }});
     }
 }
+
 

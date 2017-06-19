@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container text-center">
-        <h1>Session (high stress) - 19-06-2017</h1>
+        <h1>Session - <?= date("d-m-Y") ?></h1>
         <?php
 
         if($succes){

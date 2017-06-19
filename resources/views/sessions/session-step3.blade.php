@@ -43,8 +43,8 @@
     <script>
 
         var timer = new Timer();
-        var minutes = 30;
-        var seconds = 15;
+        var minutes = 2;
+        var seconds = 30;
         var startValue = (minutes*60) + seconds ;
         timer.start({countdown: true, startValues: {minutes: minutes, seconds: seconds}});
         $('#countdownExample .values').html(timer.getTimeValues().toString());
@@ -52,8 +52,9 @@
             $('#countdownExample .values').html(timer.getTimeValues().toString());
         });
         timer.addEventListener('targetAchieved', function (e) {
-            $('#countdownExample .values').html('Redirecting');
-            window.location.href = "/end_session";
+            $('#countdownExample .values').html('Disable airplane mode to continue');
+
+                alert('Session done, now disable airplane mode on your smartphone to end');
 
         });
     </script>
