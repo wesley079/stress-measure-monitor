@@ -7,7 +7,7 @@
 
     </div>
     <h1 class="session-big-title">Phone connected, waiting for session to be loaded.</h1>
-
+    <span class="col-xs-12 text-center">This can take up to one minute.</span>
     <div class="session-connect-options">
         <div class="hidden" id="session_code"><?= session()->get('code');?></div>
         <div class="col-xs-6 left-option">Phone</div>

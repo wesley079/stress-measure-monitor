@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\activeCode;
+use App\authorization_session;
 use App\session_data;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,6 +54,25 @@ class PostController extends Controller
         return 'nothing';
     }
 
+    public function addContact(){
+        $name = $_POST["name"];
+        $mail = $_POST["email"];
+
+        $user = User::where(array("name" => $name))->first();
+
+        if($user != null && $user->id != Auth::user()->id){
+            $authorization = new authorization_session();
+
+            $authorization->user_allower = $user->id;
+            $authorization->user_granted = Auth::user()->id;
+
+            $authorization->save();
+
+            return back()->withInput();
+        }
+        return back()->withInput();
+    }
+    
     public function checkAirplaneMode(){
         date_default_timezone_set('Europe/Amsterdam');
         $code = $_GET["code"];

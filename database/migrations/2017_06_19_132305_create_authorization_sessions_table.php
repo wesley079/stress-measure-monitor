@@ -17,6 +17,7 @@ class CreateAuthorizationSessionsTable extends Migration
             $table->increments('id');
             $table->integer("user_allower");
             $table->integer("user_granted");
+            $table->boolean("granted")->nullable();
             $table->timestamps();
         });
     }

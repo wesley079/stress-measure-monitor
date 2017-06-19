@@ -30,11 +30,12 @@ class SessionController extends Controller
 
         $connectionCode;
         //get codes
-        $dbCode = activeCode::where(array('user_id' => Auth::user()->id))->first();
+        $dbCode = activeCode::where(array('user_id' => Auth::user()->id))->orderby('updated_at', 'desc')->first();
 
         if ($dbCode != null)
         {
-            if($dbCode->end == 0) {
+            echo $dbCode->end;
+            if($dbCode->end == 0 || $dbCode->end == NULL) {
                 $connectionCode = $dbCode->code;
             }
             else{
