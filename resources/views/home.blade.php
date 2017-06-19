@@ -7,7 +7,7 @@
 
     <div class="row">
         <a href="/new_session"><div class="col-xs-12 col-md-4">New Session</div></a>
-        <div class="col-xs-12 col-md-4">My statistics</div>
+        <a href="/statistics"><div class="col-xs-12 col-md-4">My statistics</div></a>
         <div class="col-xs-12 col-md-4">Connected accounts</div>
     </div>
 </div>

@@ -13,7 +13,7 @@
         <div class="col-xs-6 left-option">Phone</div>
         <div class="col-xs-6 right-option done">Connected</div>
         <div class="col-xs-6 left-option">Airplane mode</div>
-        <div id="airplaneStatus" class="col-xs-6 right-option">Waiting..</div>
+        <div id="airplaneStatus" class="col-xs-6 right-option">Checking for signals..</div>
     </div>
 
     <div id="countdownExample">
