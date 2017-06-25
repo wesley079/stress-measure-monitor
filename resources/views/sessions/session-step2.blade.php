@@ -6,7 +6,7 @@
         <i class="fa fa-check session-big-icon" aria-hidden="true"></i>
 
     </div>
-    <h1 class="session-big-title">Phone connected, waiting for session to be loaded.</h1>
+    <h1 class="session-big-title">Phone connected, waiting for airplane mode to be enabled at least 30 seconds.</h1>
     <span class="col-xs-12 text-center">This can take up to one minute.</span>
     <div class="session-connect-options">
         <div class="hidden" id="session_code"><?= session()->get('code');?></div>

@@ -28,6 +28,8 @@
             .flex-center {
                 align-items: center;
                 display: flex;
+                background: url('/img/pexels-photo-299863.jpeg') 100% no-repeat;
+                background-position: center;
                 justify-content: center;
             }
 
@@ -47,10 +49,11 @@
 
             .title {
                 font-size: 84px;
+                color: white;
             }
 
             .links > a {
-                color: #636b6f;
+                color: whitesmoke;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -58,9 +61,26 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
+            h2{
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                color: white;
+            }
 
             .m-b-md {
                 margin-bottom: 30px;
+            }
+            button{
+                background: white;
+                color: black;
+                border-radius: 20px;
+                padding: 10px 20px;;
+                border: none;
+                font-size: 1.3em;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: rgba(256,256,256, 0.8);
             }
         </style>
     </head>
@@ -79,16 +99,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Stress Measure Monitor
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <h2>Smartphones, the #1 stress causer</h2>
+                @if (Auth::check())
+                    <a href="{{ url('/home') }}"><button>Open dashboard</button></a>
+                @else
+                    <a href="{{ url('/register') }}"><button>Register now</button></a>
+                @endif
             </div>
         </div>
     </body>

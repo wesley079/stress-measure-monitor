@@ -20,12 +20,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registerCode', 'postController@index');
-Route::get('/checkConnectionCode', 'postController@checkConnectionCode');
-Route::get('/checkCodeStatus', 'postController@checkCodeStatus');
-Route::get('/checkAirplaneMode', 'postController@checkAirplaneMode');
-Route::get('/sessionEnd', 'postController@sessionEnd');
-Route::get('/endSession', 'postController@finishSession');
-Route::get('/endSessionDesktop', 'postController@finishSessionDesktop');
+Route::get('/checkConnectionCode', 'PostController@checkConnectionCode');
+Route::get('/checkCodeStatus', 'PostController@checkCodeStatus');
+Route::get('/checkAirplaneMode', 'PostController@checkAirplaneMode');
+Route::get('/sessionEnd', 'PostController@sessionEnd');
+Route::get('/endSession', 'PostController@finishSession');
+Route::get('/endSessionDesktop', 'PostController@finishSessionDesktop');
 
 Route::get('/new_session', 'SessionController@index');
 Route::get('/end_session', 'SessionController@end');

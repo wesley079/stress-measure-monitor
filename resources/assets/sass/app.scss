@@ -33,3 +33,32 @@
   padding: 15px;
   margin: 10px;
 }
+.dashboard-item{
+  margin-top: 40px;
+  border: 15px solid #f5f8fa;
+  background-color: lightgray;
+  padding: 15px;
+  cursor: pointer!important;
+  height: 320px;
+}
+.dashboard-big-icon{
+  font-size: 5em;
+  padding: 30px;
+}
+
+.dashboard-item:hover{
+  transform: scale(1.03);
+}
+.dashboard-item .title{
+  font-size: 1.4em;
+  cursor: pointer!important;
+}
+.dashboard-item .specs{
+  font-size: 0.9em;
+  color: grey;
+  cursor: pointer!important;
+}
+.dashboard-item .specs label{
+  cursor: pointer!important;
+
+}

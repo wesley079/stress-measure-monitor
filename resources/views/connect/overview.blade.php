@@ -38,7 +38,7 @@
                     }
                     ?>
                 </ul>
-                <span class="title-span col-xs-12">Add contact</span>
+                <span class="title-span col-xs-12">Add friend</span>
                 <p class="col-xs-12">Adding a connection needs approvement. You can follow your connections status in your connections list.</p>
                 <form class="col-xs-12" method="post" action="/addConnection">
                     <div class="col-xs-6">

@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container text-center">
-        <h1>Your personal statistics</h1>
         <div class="container-fluid">
             <div class="col-md-5">
                 <h2>Overall score</h2>
